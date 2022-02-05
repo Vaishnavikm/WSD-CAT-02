@@ -70,8 +70,8 @@ var span=document.getElementsByTagName('span');
         {
             $("#age").addClass("is-invalid")
             $("#age").removeClass("is-valid")
-            span[5].innerText="enter valid number";
-            span[5].className="invalid-feedback";
+            span[7].innerText="enter valid age";
+            span[7].className="invalid-feedback";
             return false 
         }
         else{
@@ -91,25 +91,6 @@ var span=document.getElementsByTagName('span');
             $("#age").removeClass("is-invalid")
             return true
         }
-}
-
-age.onkeyup=function()
-{
-    const regex5=/^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|100)$/;
-    if (regex5.test(age.value.trim()))
-{ 
-    $("#age").addClass("is-valid")
-    $("#age").removeClass("is-invalid")
-    span[1].innerText="looks good";
-    span[1].className="valid-feedback";
-}
-else{
-    $("#age").addClass("is-valid")
-    $("#age").removeClass("is-invalid")
-    span[1].innerText="Enter valid age";
-    span[1].className="valid-feedback"; 
-}
-
 }
 
 email.onkeyup=function()
@@ -215,7 +196,23 @@ address.onkeyup=function(){
         span[6].className="valid-feedback";
     }
 }
+age.onkeyup=function(){
+    const regex5=/^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|100)$/;
+    if(regex5.test(age.value.trim()))
+{ 
+    $("#age").addClass("is-valid")
+    $("#age").removeClass("is-invalid")
+    span[7].innerText="looks good";
+    span[7].className="valid-feedback";
+}
+else{
+    $("#age").addClass("is-valid")
+    $("#age").removeClass("is-invalid")
+    span[7].innerText="Enter valid age";
+    span[7].className="valid-feedback"; 
+}
 
+}
 function numlock(event)
 {
     let code=event.which;
@@ -245,11 +242,8 @@ function addCookie()
     {
         document.cookie = "Phone=" + phone + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
         document.cookie = "email=" + email + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
-        localStorage.setItem('Phone', )
+        localStorage.setItem('Phone',phone)
         localStorage.setItem('email', email)
-        sessionStorage.setItem('name', name)
-        sessionStorage.setItem('location', loc)
-        //alert("Cookie Added")
         window.location.reload()
     }
     else
@@ -260,7 +254,7 @@ function addCookie()
 
 function getXml(){
     var elements = document.forms.myForm.elements;
-    var xmlTemplate = '<?xml version="1.0"?> <formData>';
+    var xmlTemplate = '<?xml version="1.0"?> <Christ>';
     for(var i =0; i< elements.length; i++){
         var element = elements[i];
         if(element.tagName=="INPUT"){
