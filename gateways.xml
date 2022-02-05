@@ -1,1 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<CHRIST>
+  <computer-science>
+    <stu-name>Micheal D</stu-name>
+    <stu-university>Central University of Hyderabad</stu-university>
+    <stu-phone>9734783482</stu-phone>
+    <stu-email>Micheal@chu.in</stu-email>
+  </computer-science>
+  <computer-science>
+    <stu-name>Micheal D</stu-name>
+    <stu-university>Central University of Hyderabad</stu-university>
+    <stu-phone>9734783482</stu-phone>
+    <stu-email>Micheal@chu.in</stu-email>
+  </computer-science>
+  <computer-science>
+    <stu-name>Micheal D</stu-name>
+    <stu-university>Central University of Hyderabad</stu-university>
+    <stu-phone>9734783482</stu-phone>
+    <stu-email>Micheal@chu.in</stu-email>
+  </computer-science>
+
+</CHRIST>

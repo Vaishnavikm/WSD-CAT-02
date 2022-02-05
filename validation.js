@@ -10,11 +10,11 @@ var span=document.getElementsByTagName('span');
 
 
     function validate(){
-        const regex1= /^([a-z0-9\.-]+)@(christuniversity)\.(in)$/;
+        const regex1= /^([a-z0-9\.-]+)@(university)\.(in)$/;
         const regex2= /^[a-zA-Z]+$/
         const regex3 = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])([a-z])([a-zA-Z0-9!@#$%^&*])(.*[a-z])?$/;
         const isValidLength = /^.{8,16}$/;
-        const regex5=/^[1-9]?[0-9]{1}$|^100$/
+        const regex5= /^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|100)$/;
         const regex4=/^[0-9]{10}$/ ;
         //name validation
         if(Name.value.trim().length<3){
@@ -66,7 +66,7 @@ var span=document.getElementsByTagName('span');
             span[6].className="invalid-feedback";
             return false   
         }
-        else if(!regex5.test(phno.value.trim()))
+        else if(!regex5.test(age.value.trim()))
         {
             $("#age").addClass("is-invalid")
             $("#age").removeClass("is-valid")
@@ -95,27 +95,26 @@ var span=document.getElementsByTagName('span');
 
 age.onkeyup=function()
 {
-    const regex5=/^[1-9]?[0-9]{1}$|^100$/
-    if (!regex5.test(age.value.trim()))
+    const regex5=/^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|100)$/;
+    if (regex5.test(age.value.trim()))
 { 
     $("#age").addClass("is-valid")
     $("#age").removeClass("is-invalid")
-    span[2].innerText="looks good";
-    span[2].className="valid-feedback";
+    span[1].innerText="looks good";
+    span[1].className="valid-feedback";
 }
 else{
     $("#age").addClass("is-valid")
     $("#age").removeClass("is-invalid")
-    span[2].innerText="Enter valid age";
-    span[2].className="valid-feedback"; 
+    span[1].innerText="Enter valid age";
+    span[1].className="valid-feedback"; 
 }
-
 
 }
 
 email.onkeyup=function()
     {
-        const regex1= /^([a-z0-9\.-]+)@(christuniversity)\.(in)$/;
+        const regex1= /^([a-z0-9\.-]+)@(university)\.(in)$/;
         if(regex1.test(email.value.trim()))
         {
 
@@ -237,3 +236,41 @@ function alplock(event){
     }
 }
 
+
+function addCookie()
+{
+    var phone = document.getElementById("phno").value
+    var email = document.getElementById("email").value
+    if((phone.trim() != "")  && (email.trim() != ""))
+    {
+        document.cookie = "Phone=" + phone + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
+        document.cookie = "email=" + email + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
+        localStorage.setItem('Phone', )
+        localStorage.setItem('email', email)
+        sessionStorage.setItem('name', name)
+        sessionStorage.setItem('location', loc)
+        //alert("Cookie Added")
+        window.location.reload()
+    }
+    else
+    {
+        alert("Form Incomplete")
+    }
+}
+
+function getXml(){
+    var elements = document.forms.myForm.elements;
+    var xmlTemplate = '<?xml version="1.0"?> <formData>';
+    for(var i =0; i< elements.length; i++){
+        var element = elements[i];
+        if(element.tagName=="INPUT"){
+            xmlTemplate = xmlTemplate + '<'+element.name+'>' + element.value+'</'+element.name+'>';
+        }
+
+
+    }
+    xmlTemplate = xmlTemplate +'</formData>';
+   return xmlTemplate;
+}
+
+getXml();

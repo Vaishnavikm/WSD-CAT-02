@@ -12,7 +12,7 @@
   <div class="container">
     <div class="jumbotron st4">
       <h1 class="heading">Gateways 2022 Registration</h1>
-      <form class="needs-validation" id="form" onsubmit="return validate()" action="index.html">
+      <form class="needs-validation" id="form" onsubmit="return validate()" onsubmit = "return getXml()">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" onkeypress="return numlock(event)" class="form-control" id="name">
@@ -70,6 +70,9 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="mb-3">
+        <button class="btn btn-primary" type="button" onclick="addCookie()">Add Cookie</button>
         </div>
     </form>
     </div>
